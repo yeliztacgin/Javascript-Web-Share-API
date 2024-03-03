@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Web Share API</title>
+</head>
+<body>
+
+    <button id="share-btn">Paylaş</button>
+    <script>
+        const button=document.getElementById('share-btn')
+
+        button.addEventListener('click', e => {
+
+            e.preventDefault();
+            if (navigator.share) {
+                const shareData = {
+
+
+                    title: 'Youtube',
+                    text: 'Bu site cok guzel',
+                    url:'https://www.youtube.com'
+                };
+                navigator.share(shareData)
+                    .then(() => {
+                        alert('paylaşıldı')
+
+                    })
+
+                    .catch(e => {
+
+                        alert(e)
+
+                    });
+            }
+        })
+
+    </script>
+
+</body>
+</html>
